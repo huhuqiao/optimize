@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+  } 
+  .pic li {
+    margin-left: 40px;
+    padding: 20px;
+    border: 1px solid red;
+    background-color: #ccc;
+    list-style: none;
+  }
+  .pic li img {
+    width: 160px;
+    height: 100px;
+  }
+  </style>
+</head>
+<body>
+<div id="box">
+  <ul class="pic">
+    <!-- <li @mouseover='enter()' @mouseout='leave()'>
+      <img  v-bind:src="list" alt="">
+    </li> -->
+    <!-- <li @mouseenter='enter()' @mouseleave='leave()'>
+      <img  v-bind:src="list" alt="">
+    </li> -->
+    <!-- <li @mouseover.stop='enter()' @mouseout.stop='leave()'>
+      <img  v-bind:src="list" alt="">
+    </li> -->
+    <li @mouseover.self='enter()' @mouseout.self='leave()'>
+      <img  v-bind:src="list" alt="">
+    </li>
+  </ul>
+</div>
+<script src="./node_modules/vue/dist/vue.min.js"></script>
+<script>
+  var pic = new Vue({
+    el:"#box",
+    data:{
+      list:['images/0.jpg']
+    },
+    methods:{
+      enter(){
+         console.log("鼠标进入li");
+      },
+      leave(){
+        console.log('鼠标移出li');
+      }
+    }
+  })
+</script>
+</body>
+</html>
